@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         if (gameStateText != null)
         {
             gameStateText.gameObject.SetActive(true);
-            gameStateText.text = "GAME OVER!\nL'enfant a attrapé la balle!";
+            gameStateText.text = "GAME OVER!\nTimmy a attrapé la balle!";
             gameStateText.color = Color.red;
             StartCoroutine(AnimateText(gameStateText.transform));
         }
@@ -148,21 +148,17 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator RestartGameSequence()
     {
-        // Réinitialiser les variables de jeu
         gameOver = false;
         pinsHit = 0;
         timeRemaining = timeLimit;
         
-        // Réinitialiser l'UI
         if (gameStateText != null)
             gameStateText.gameObject.SetActive(false);
         if (restartButton != null)
             restartButton.gameObject.SetActive(false);
 
-        // Attendre un court instant
         yield return new WaitForSeconds(0.2f);
         
-        // Réinitialiser la balle en premier
         var bowlingBall = FindAnyObjectByType<BowlingBall>();
         if (bowlingBall != null)
         {
@@ -179,13 +175,12 @@ public class GameManager : MonoBehaviour
             foreach (Pin pin in pins)
             {
                 pin.ResetPin();
-                yield return new WaitForSeconds(0.05f); // Petit délai entre chaque quille
+                yield return new WaitForSeconds(0.05f); 
             }
         }
 
         yield return new WaitForSeconds(0.2f);
         
-        // Réinitialiser le NPC en dernier
         var npcController = FindAnyObjectByType<NPCController>();
         if (npcController != null)
             npcController.RestartBehavior();
