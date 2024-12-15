@@ -1,6 +1,6 @@
 # 🎳 Bowling kid chase
 
-Un jeu d'arcade en 3D où vous devez faire tomber toutes les quilles tout en échappant à un enfant malicieux qui veut votre boule de bowling !
+Un jeu en 3D où vous devez faire tomber toutes les quilles tout en échappant à un enfant qui veut votre boule de bowling !
 
 ## 🎮 Gameplay
 
